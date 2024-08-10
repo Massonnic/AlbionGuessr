@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlbionGuessr</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+</head>
+<body>
+    <div id="option">
+        <p>Le <b>nom de la zone</b> à devinez sera affiché en <b>haut à gauche</b> de la carte du monde</p>
+        <br>
+        <form action="#" method="get" onsubmit="event.preventDefault()">
+            <div>
+                <input type="checkbox" name="training" id="training">
+                <label for="training">Entrainement (voir le nom des zones au survol)</label>
+            </div>
+            <br>
+            <fieldset id="content">
+                <legend>Contenu</legend>
+                <div>
+                    <input type="radio" name="content" id="bz">
+                    <label for="bz">Blackzone</label>
+                </div>
+                <div>
+                    <input type="radio" name="content" id="royal" disabled>
+                    <label for="royal">Royal (indisponible)</label>
+                </div>
+                <div>
+                    <input type="radio" name="content" id="all" disabled>
+                    <label for="all">Tout (indisponible)</label>
+                </div>
+            </fieldset>
+            <fieldset id="mode">
+                <legend>Mode</legend>
+                <div>
+                    <input type="radio" name="mode" id="regions">
+                    <label for="regions">Regions (recommandé)</label>
+                </div>
+                <div>
+                    <input type="radio" name="mode" id="zones">
+                    <label for="zones">Zones</label>
+                </div>
+            </fieldset>
+            <br>
+            <div>
+                <input type="checkbox" name="nosafe" id="nosafe">
+                <label for="nosafe">Exclure les zones safes (portails et avant-postes)</label>
+            </div>
+            <br>
+            <input id="submit" type="submit" value="Lancer">
+        </form>
+    </div>
+
+    <div id="game">
+        <p id="guess_name"></p>
+        <div id="map"></div>
+    </div>
+
+    <script src="zones.js"></script>
+    <script src="map.js"></script>
+    <script src="session.js"></script>
+</body>
+</html>
