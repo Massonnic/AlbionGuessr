@@ -171,10 +171,18 @@ function guess(circle, zone) {
     
     if (options.mode == modes[0]) { // Regions
         if (zone.region === name) { // si bonne reponse, on passe la zone en verte et infobulle
-            colorize_circles(name, "green");
-            circle.off();
-            circle.on('mouseover', () => onZoneHover(circle, zone.name));
-            circle.on('mouseout', () => popup.close());
+            //colorize_circles(name, "green");
+            circles.forEach((circle, zone) => {
+                if (zone.region === name) {
+                    circle.off();
+                    circle.on('mouseover', () => onZoneHover(circle, zone.name));
+                    circle.on('mouseout', () => popup.close());
+
+                    circle.setStyle({
+                        color: "green"
+                    });
+                }
+            })
 
             counter++; // +1 bonne réponse
             pick()
@@ -191,11 +199,15 @@ function guess(circle, zone) {
                         circle.off();
                         circle.on('mouseover', () => onZoneHover(circle, zone.name));
                         circle.on('mouseout', () => popup.close());
+
+                        circle.setStyle({
+                            color: "red"
+                        });
                     }
                 });
                 pick();
             }, 1500);
-            colorize_circles(name, "red");
+            //colorize_circles(name, "red");
         }
     }
     else if (name === zone.name) { // mode Zones et bonne réponse
