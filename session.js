@@ -30,6 +30,7 @@ function onMapClick(e) {
         .setContent(e.latlng.toString())
         .openOn(map);
 }
+//map.on('click', onMapClick);
 
 function onZoneHover(circle, content) {
     popup
