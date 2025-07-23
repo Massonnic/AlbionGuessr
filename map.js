@@ -26,7 +26,7 @@ var map = L.map('map', {
     center: coords,
 })
 
-var tileLayer = L.tileLayer('https://cdn.albiononline2d.com/map/maptiles/{z}/map_{x}_{y}.png', {
+var tileLayer = L.tileLayer('https://wiki.albiononline.com/resources/assets/maptiles/{z}/map_{x}_{y}.png', {
     minZoom: 1,
     maxZoom: 7,
     noWrap: true,
